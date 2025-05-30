@@ -1,8 +1,7 @@
 import React from "react";
-import gigziLogo from "./assets/LOGO.png";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Pay from "./components/Pay";
-import Home from "./components/HOME.JSX";
+import Home from "./components/Home.JSX";
 
 function App() {
   return (
