@@ -57,7 +57,7 @@ const Home = () => {
         {/* Call to Action */}
         <section className="py-16 bg-purple-700 text-center">
           <h2 className="text-3xl font-bold mb-4">
-            Ready to book your next performer?
+            Ready to book your next performer??
           </h2>
           <button className="bg-white text-purple-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
             Explore Artists
