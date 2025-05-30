@@ -4,13 +4,11 @@ import axios from "axios";
 
 function Pay() {
   let url = import.meta.env.VITE_SERVER;
-  const orderId = new URLSearchParams(window.location.search).get("orderId");
+  const id = new URLSearchParams(window.location.search).get("orderId");
 
   useEffect(() => {
     async function fetchOrder() {
-      const res = await axios.get(
-        `${url}/client/order/getOrderDetails/${orderId}`
-      );
+      const res = await axios.get(`${url}/client/order/getOrderDetails/${id}`);
       console.log("yash");
       const data = res.data;
 
