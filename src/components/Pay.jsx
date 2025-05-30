@@ -30,7 +30,7 @@ function Pay() {
     }
 
     fetchOrder();
-  }, [orderId]);
+  }, [id]);
 
   return (
     <div>
