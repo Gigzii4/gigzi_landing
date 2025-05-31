@@ -2,15 +2,17 @@ import React, { useEffect } from "react";
 import axios from "axios";
 
 function Pay() {
-  let url = `http://127.0.0.1:5000`;
+  let url = `https://gigzii-backend-ez3l.vercel.app`;
   const id = new URLSearchParams(window.location.search).get("orderId");
 
   useEffect(() => {
     async function fetchOrder() {
       try {
         const res = await axios.get(
-          `${url}/client/order/getOrderDetails/${id}`
+          `${url}/client/order/getOrderDetails/${id}`,
+          { withCredentials: true }
         );
+
         const data = res.data;
 
         // Send log to WebView
@@ -21,7 +23,7 @@ function Pay() {
         };
 
         postLog("Fetched order data");
-        postLog(JSON.stringify(data));
+        postLog(JSON.stringify(res));
 
         const options = {
           key: import.meta.env.VITE_RAZORPAY_KEY,
