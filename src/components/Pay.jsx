@@ -11,7 +11,7 @@ function Pay() {
       const res = await axios.get(`${url}/client/order/getOrderDetails/${id}`);
       console.log("yash");
       const data = res.data;
-
+      console.log(data);
       const options = {
         key: import.meta.env.VITE_RAZORPAY_KEY,
         order_id: data.razorpayOrderId,
