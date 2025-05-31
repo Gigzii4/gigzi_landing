@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 
 function Pay() {
-  let url = import.meta.env.VITE_SERVER;
+  let url = `http://127.0.0.1:5000`;
   const id = new URLSearchParams(window.location.search).get("orderId");
 
   useEffect(() => {
