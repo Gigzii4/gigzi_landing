@@ -11,7 +11,7 @@ export default function Success() {
     const verifyPayment = async () => {
       try {
         const res = await axios.post(
-          "https://gigzii-backend-ez3l.vercel.app/client/order/verifyPayment",
+          "https://gigzii-backend-cs4s.vercel.app/client/order/verifyPayment",
           {
             razorpay_payment_id: params.get("payment_id"),
             razorpay_order_id: params.get("order_id"),
