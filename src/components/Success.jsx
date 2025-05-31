@@ -1,4 +1,3 @@
-// src/pages/Success.jsx
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
@@ -26,7 +25,7 @@ export default function Success() {
           JSON.stringify({ type: "payment-status", status: "success" })
         );
       } catch (err) {
-        console.error(err);
+        console.error("Verification Error:", err);
         setStatus("❌ Payment verification failed.");
       }
     };
