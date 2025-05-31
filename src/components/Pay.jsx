@@ -3,7 +3,7 @@ import axios from "axios";
 
 function Pay() {
   const id = new URLSearchParams(window.location.search).get("orderId");
-  const url = `https://gigzii-backend-cs4s.vercel.app`; 
+  const url = `https://gigzii-backend-cs4s.vercel.app`;
 
   useEffect(() => {
     async function fetchOrder() {
@@ -23,16 +23,19 @@ function Pay() {
         postLog("Fetched order data: " + JSON.stringify(data));
 
         const options = {
-          key: import.meta.env.VITE_RAZORPAY_KEY,
+          key: import.meta.env.VITE_RAZORPAY_KEY, // Or REACT_APP_RAZORPAY_KEY
           amount: data.amount * 100,
           currency: "INR",
           name: "Gigzi",
           description: "Booking Artist",
           order_id: data.razorpayOrderId,
           handler: function (response) {
-            postLog("Payment handler response: " + JSON.stringify(response));
+            const { razorpay_payment_id, razorpay_order_id, razorpay_signature } = response;
 
-            const successUrl = `/success?payment_id=${response.razorpay_payment_id}&order_id=${response.razorpay_order_id}&signature=${response.razorpay_signature}`;
+            postLog("Payment Success: " + JSON.stringify(response));
+
+            // Redirect with all values
+            const successUrl = `/success?payment_id=${razorpay_payment_id}&order_id=${razorpay_order_id}&signature=${razorpay_signature}`;
             window.location.href = successUrl;
           },
           theme: {
@@ -49,7 +52,7 @@ function Pay() {
 
         rzp.open();
       } catch (error) {
-        console.error(error);
+        console.error("Fetch Order Error:", error);
         window.ReactNativeWebView?.postMessage(
           JSON.stringify({
             type: "log",
