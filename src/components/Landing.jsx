@@ -15,8 +15,9 @@ const Landing = () => {
               />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Welcome to Gigzi
+              Launching Soon
             </h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">Gigzi</h1>
             <p className="text-lg md:text-xl max-w-2xl mb-8">
               Book talented artists for your events with ease. Gigzi connects
               you with performers in your city for unforgettable moments.
