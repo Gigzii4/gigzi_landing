@@ -1,21 +1,23 @@
+// src/pages/Pay.jsx
 import React, { useEffect } from "react";
 import axios from "axios";
 
 function Pay() {
-  let url = `https://gigzii-backend-ez3l.vercel.app`;
   const id = new URLSearchParams(window.location.search).get("orderId");
+  const url = `https://gigzii-backend-ez3l.vercel.app`;
 
   useEffect(() => {
     async function fetchOrder() {
       try {
         const res = await axios.get(
           `${url}/client/order/getOrderDetails/${id}`,
-          { withCredentials: true }
+          {
+            withCredentials: true,
+          }
         );
 
         const data = res.data;
 
-        // Send log to WebView
         const postLog = (msg) => {
           window.ReactNativeWebView?.postMessage(
             JSON.stringify({ type: "log", msg })
@@ -39,6 +41,7 @@ function Pay() {
             color: "#3399cc",
           },
         };
+        success;
 
         const rzp = new window.Razorpay(options);
         rzp.open();
