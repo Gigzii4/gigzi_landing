@@ -41,7 +41,6 @@ function Pay() {
             color: "#3399cc",
           },
         };
-        success;
 
         const rzp = new window.Razorpay(options);
         rzp.open();
