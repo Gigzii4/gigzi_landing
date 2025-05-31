@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 
 function Pay() {
-  const url = import.meta.env.VITE_SERVER;
+  let url = import.meta.env.VITE_SERVER;
   const id = new URLSearchParams(window.location.search).get("orderId");
 
   useEffect(() => {
@@ -13,19 +13,25 @@ function Pay() {
         );
         const data = res.data;
 
-        if (!window.Razorpay) {
-          console.error("Razorpay SDK not loaded");
-          return;
-        }
+        // Send log to WebView
+        const postLog = (msg) => {
+          window.ReactNativeWebView?.postMessage(
+            JSON.stringify({ type: "log", msg })
+          );
+        };
+
+        postLog("Fetched order data");
+        postLog(JSON.stringify(data));
 
         const options = {
           key: import.meta.env.VITE_RAZORPAY_KEY,
           order_id: data.razorpayOrderId,
-          amount: data.amount * 100, // Razorpay accepts amount in paisa
+          amount: data.amount * 100,
           name: "Gigzi",
-          description: "Event Booking Payment",
           handler: function (response) {
-            window.location.href = `/success?payment_id=${response.razorpay_payment_id}&order_id=${response.razorpay_order_id}&signature=${response.razorpay_signature}`;
+            const successUrl = `/success?payment_id=${response.razorpay_payment_id}&order_id=${response.razorpay_order_id}&signature=${response.razorpay_signature}`;
+            postLog("Redirecting to: " + successUrl);
+            window.location.href = successUrl;
           },
           theme: {
             color: "#3399cc",
@@ -35,17 +41,22 @@ function Pay() {
         const rzp = new window.Razorpay(options);
         rzp.open();
       } catch (error) {
-        console.error("Error fetching order or opening Razorpay:", error);
-        alert("Payment initialization failed. Please try again later.");
+        console.error(error);
+        window.ReactNativeWebView?.postMessage(
+          JSON.stringify({
+            type: "log",
+            msg: "Payment error: " + error.message,
+          })
+        );
       }
     }
 
     fetchOrder();
-  }, [id, url]);
+  }, [id]);
 
   return (
-    <div className="flex justify-center items-center w-full h-screen">
-      <p className="text-lg font-medium">Loading Payment...</p>
+    <div className="flex justify-center items-center w-full h-full">
+      <p>Loading Payment.....</p>
     </div>
   );
 }
