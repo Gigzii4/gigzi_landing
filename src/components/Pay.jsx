@@ -33,7 +33,7 @@ function Pay() {
   }, [id]);
 
   return (
-    <div>
+    <div className="flex justify-center items-center w-full">
       <p>Loading Payment.....</p>
     </div>
   );
