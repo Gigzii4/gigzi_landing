@@ -12,7 +12,7 @@ function Pay() {
           withCredentials: true,
         });
 
-        const data = res.data;
+        const data = res.data.order; 
 
         // Log helper to send messages to React Native app
         const postLog = (msg) => {
