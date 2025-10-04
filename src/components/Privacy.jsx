@@ -1,9 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; // if using react-router
-// or replace with Link from next/link if Next.js
 
 const Privacy = () => {
-  const navigate = useNavigate(); // for navigation
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-black text-white font-sans">
@@ -27,6 +26,9 @@ const Privacy = () => {
               <li>Name and Email address for login and account purposes.</li>
               <li>Payment information for transactions.</li>
               <li>Usage data for improving the app experience.</li>
+              <li>
+                Aadhaar images for identity verification of artists (securely stored and used only for verification purposes).
+              </li>
             </ul>
           </section>
 
@@ -38,6 +40,7 @@ const Privacy = () => {
               <li>To provide and maintain our services.</li>
               <li>To process transactions and send confirmations.</li>
               <li>To enhance and improve app features and user experience.</li>
+              <li>To verify identity of artists using Aadhaar information.</li>
             </ul>
           </section>
 
@@ -48,7 +51,7 @@ const Privacy = () => {
             <p className="text-gray-300">
               We do not sell your personal data. We may share it with trusted
               service providers under strict confidentiality agreements to help
-              operate our platform.
+              operate our platform. Aadhaar images are never shared with any third party.
             </p>
           </section>
 
@@ -57,8 +60,8 @@ const Privacy = () => {
               4. Your Rights
             </h2>
             <p className="text-gray-300">
-              You can request deletion of your account or personal data anytime
-              by contacting us at <strong>gigziibuisness@gmail.com</strong>.
+              You can request deletion of your account or personal data anytime,
+              including Aadhaar images, by contacting us at <strong>gigziibuisness@gmail.com</strong>.
             </p>
           </section>
 
@@ -67,8 +70,8 @@ const Privacy = () => {
               5. Contact Us
             </h2>
             <p className="text-gray-300">
-              For questions regarding this Privacy Policy, please reach out to us
-              at <strong>gigziibuisness@gmail.com</strong>.
+              For questions regarding this Privacy Policy or data deletion requests,
+              please reach out to us at <strong>gigziibuisness@gmail.com</strong>.
             </p>
           </section>
 
