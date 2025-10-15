@@ -18,9 +18,13 @@ const Landing = () => {
           Book talented artists for your events with ease. Gigzi connects you
           with performers in your city for unforgettable moments.
         </p>
-        <button className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
-          Get Started
-        </button>
+        {/* Link for artists to register */}
+        <Link
+          to="/artist-signup"
+          className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition"
+        >
+          Register as Artist
+        </Link>
       </section>
 
       {/* Features Section */}
@@ -60,11 +64,15 @@ const Landing = () => {
       {/* Call to Action */}
       <section className="py-16 bg-purple-700 text-center">
         <h2 className="text-3xl font-bold mb-6 text-white">
-          Ready to book your next performer?
+          Ready to showcase your talent?
         </h2>
-        <button className="bg-white text-purple-700 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
-          Explore Artists
-        </button>
+        {/* Link for artists to register */}
+        <Link
+          to="/register"
+          className="bg-white text-purple-700 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition"
+        >
+          Register as Artist
+        </Link>
       </section>
 
       {/* Footer */}

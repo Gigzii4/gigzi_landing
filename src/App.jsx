@@ -4,6 +4,7 @@ import Pay from "./components/Pay";
 import Landing from "./components/Landing";
 import Success from "./components/Success";
 import Privacy from "./components/Privacy";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/pay" element={<Pay />} />
         <Route path="/success" element={<Success />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );
