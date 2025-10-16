@@ -20,7 +20,7 @@ const Landing = () => {
         </p>
         {/* Link for artists to register */}
         <Link
-          to="/artist-signup"
+          to="/register"
           className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition"
         >
           Register as Artist
