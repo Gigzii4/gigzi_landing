@@ -111,6 +111,7 @@ export default function ArtistSignupWeb() {
 
         {/* Form */}
         <div className="p-8 space-y-6">
+          {/* Basic Info */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input
               type="text"
@@ -147,6 +148,7 @@ export default function ArtistSignupWeb() {
             </select>
           </div>
 
+          {/* Address */}
           <textarea
             placeholder="Address"
             value={address}
@@ -155,35 +157,84 @@ export default function ArtistSignupWeb() {
             rows={3}
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-gray-700 font-semibold mb-2">Upload Aadhaar Front</label>
-              <input
-                type="file"
-                onChange={(e) => setFrontFile(e.target.files[0])}
-                className="w-full"
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700 font-semibold mb-2">Upload Aadhaar Back</label>
-              <input
-                type="file"
-                onChange={(e) => setBackFile(e.target.files[0])}
-                className="w-full"
-              />
-            </div>
+          {/* Aadhaar Upload Section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[{ label: "Aadhaar Front", setter: setFrontFile, file: frontFile },
+              { label: "Aadhaar Back", setter: setBackFile, file: backFile }].map((item, idx) => (
+              <div
+                key={idx}
+                className="border-2 border-dashed border-pink-400 rounded-2xl p-4 flex flex-col items-center justify-center hover:border-pink-600 transition duration-300 bg-pink-50/30"
+              >
+                <label className="text-gray-700 font-semibold mb-3 text-center">
+                  Upload {item.label}
+                </label>
+
+                {item.file ? (
+                  <div className="relative w-full">
+                    <img
+                      src={URL.createObjectURL(item.file)}
+                      alt={item.label}
+                      className="w-full h-48 object-cover rounded-xl shadow-md"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => item.setter(null)}
+                      className="absolute top-2 right-2 bg-red-500 text-white rounded-full px-2 py-1 text-xs shadow-md hover:bg-red-600"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ) : (
+                  <label className="flex flex-col items-center justify-center w-full h-48 cursor-pointer border border-gray-300 rounded-xl bg-white hover:bg-pink-100 transition">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-10 w-10 text-pink-500 mb-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 4v16m8-8H4"
+                      />
+                    </svg>
+                    <span className="text-sm text-gray-600 font-medium">
+                      Click to upload {item.label}
+                    </span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => item.setter(e.target.files[0])}
+                      className="hidden"
+                    />
+                  </label>
+                )}
+              </div>
+            ))}
           </div>
 
+          {/* Event Categories */}
           <div>
             <label className="block text-gray-700 font-semibold mb-2">Event Categories</label>
-            <MultiSelect
-              options={events.map((e) => ({ label: e.name, value: e._id }))}
-              value={selectedItems}
-              onChange={setSelectedItems}
-              labelledBy="Pick Events"
-            />
+            <div className="relative">
+              <MultiSelect
+                options={events.map((e) => ({ label: e.name, value: e._id }))}
+                value={selectedItems}
+                onChange={setSelectedItems}
+                labelledBy="Pick Events"
+                overrideStrings={{
+                  selectSomeItems: "Select event categories...",
+                  allItemsAreSelected: "All categories selected",
+                }}
+                // Custom styles to open dropdown upward
+                className="multi-select-up"
+              />
+            </div>
           </div>
 
+          {/* Submit Button */}
           <button
             onClick={handleSignup}
             disabled={uploading}
@@ -219,6 +270,15 @@ export default function ArtistSignupWeb() {
           </button>
         </div>
       </div>
+
+      {/* Custom CSS for upward dropdown */}
+      <style>{`
+        .multi-select-up .dropdown-content {
+          bottom: 100% !important;
+          top: auto !important;
+          margin-bottom: 8px !important;
+        }
+      `}</style>
     </div>
   );
 }
