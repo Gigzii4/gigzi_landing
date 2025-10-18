@@ -234,7 +234,7 @@ export default function ArtistSignupWeb() {
             </div>
           </div>
 
-          {/* Submit Button */}
+          
           <button
             onClick={handleSignup}
             disabled={uploading}
@@ -271,7 +271,7 @@ export default function ArtistSignupWeb() {
         </div>
       </div>
 
-      {/* Custom CSS for upward dropdown */}
+  
       <style>{`
         .multi-select-up .dropdown-content {
           bottom: 100% !important;
