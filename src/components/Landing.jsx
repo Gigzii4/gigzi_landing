@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"; // or 'next/link' if using Next.js
-import gigziLogo from "../assets/LOGO.png";
+import gigziLogo from "../../public/LOGO.png"
 
 const Landing = () => {
   return (
