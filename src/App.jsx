@@ -5,6 +5,7 @@ import Landing from "./components/Landing";
 import Success from "./components/Success";
 import Privacy from "./components/Privacy";
 import Register from "./components/Register";
+import InternshipPage from "./components/InternshipPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/success" element={<Success />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/applyIntern" element={<InternshipPage />} />
       </Routes>
     </BrowserRouter>
   );
