@@ -236,7 +236,7 @@ export default function InternshipPage() {
                   </p>
 
                   <p>
-                    <strong>Data & privacy:</strong> Personal data (including any identity documents) will be processed in accordance with our Privacy Policy. Candidates can request deletion of personal data by contacting <strong>gigziibuisness@gmail.com</strong>.
+                    <strong>Data & privacy:</strong> Personal data (Including any identity documents) will be processed in accordance with our Privacy Policy. Candidates can request deletion of personal data by contacting <strong>gigziibuisness@gmail.com</strong>.
                   </p>
 
                   <p>
