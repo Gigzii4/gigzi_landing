@@ -93,7 +93,7 @@ export default function ComingSoon() {
 
       {/* HERO SECTION */}
       <section className="pt-32 pb-24 px-6 text-center text-white">
-        <h1 className="text-6xl md:text-7xl font-extrabold mb-4 animate-pulse">
+        <h1 className="text-4xl md:text-7xl font-extrabold mb-4 animate-pulse">
           Gigzi is Launching Soon 🚀
         </h1>
         <p className="text-lg md:text-xl mb-10 text-white/80">
@@ -101,11 +101,11 @@ export default function ComingSoon() {
         </p>
 
         {/* Countdown */}
-        <div className="flex flex-wrap justify-center gap-5 mb-12">
+        <div className="flex flex-wrap justify-center gap-3  md:gap-5 mb-12">
           {Object.entries(timeLeft).map(([key, value]) => (
             <div
               key={key}
-              className="bg-white/20 shadow-lg rounded-2xl px-6 py-5 w-24 md:w-28 hover:scale-105 transform transition backdrop-blur-lg"
+              className="bg-white/20 shadow-lg rounded-2xl px-6 py-5 w-20 md:w-28 hover:scale-105 transform transition backdrop-blur-lg"
             >
               <p className="text-4xl font-bold text-white">{value}</p>
               <p className="text-xs uppercase text-white/80 mt-1">{key}</p>
@@ -118,7 +118,7 @@ export default function ComingSoon() {
           <input
             type="email"
             placeholder="Enter your email"
-            className="border border-white/40 rounded-xl px-4 py-3 w-72 focus:outline-none focus:ring-2 focus:ring-white/60 bg-white/10 text-white placeholder-white/70"
+            className="border border-white/40 rounded-xl px-4 py-3 w-full md:w-72 focus:outline-none focus:ring-2 focus:ring-white/60 bg-white/10 text-white placeholder-white/70"
           />
           <button className="bg-white text-purple-700 px-6 py-3 rounded-xl hover:bg-gray-100 transition transform hover:scale-105">
             Notify Me
