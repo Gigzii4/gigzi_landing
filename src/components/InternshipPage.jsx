@@ -32,9 +32,8 @@ export default function InternshipPage() {
 
     setSubmitting(true);
 
-    // Simulate form submit. Replace with your API endpoint.
+    
     try {
-      // Build payload
       const payload = {
         name,
         email,
@@ -46,20 +45,15 @@ export default function InternshipPage() {
         appliedAt: new Date().toISOString(),
       };
 
-      // TODO: POST payload to backend e.g. /api/internships/apply
       await new Promise((r) => setTimeout(r, 900));
 
       setSuccess(true);
-      // Clear form (optional)
       setName("");
       setEmail("");
       setPhone("");
       setPortfolio("");
       setExperience("");
       setAgreement(false);
-
-      // You may navigate to a thank-you page
-      // navigate('/thank-you')
     } catch (err) {
       setSuccess(false);
     } finally {
@@ -79,7 +73,6 @@ export default function InternshipPage() {
 
         <main className="bg-gray-900 rounded-3xl p-8 md:p-12 shadow-xl border border-gray-700">
           <section className="grid md:grid-cols-2 gap-8">
-            {/* Left column - Details */}
             <div>
               <h2 className="text-2xl font-semibold text-purple-300 mb-4">Program Snapshot</h2>
 
