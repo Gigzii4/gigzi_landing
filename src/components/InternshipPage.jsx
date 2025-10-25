@@ -14,7 +14,7 @@ export default function InternshipPage() {
   const [portfolio, setPortfolio] = useState("");
   const [experience, setExperience] = useState("");
   const [agreement, setAgreement] = useState(false);
-  const [mode, setMode] = useState("skilled"); // 'skilled' or 'training'
+  const [mode, setMode] = useState("skilled"); 
   const [showTnC, setShowTnC] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(null);
