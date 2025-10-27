@@ -3,7 +3,7 @@ import axios from "axios";
 
 function Pay() {
   const id = new URLSearchParams(window.location.search).get("orderId");
-  const url = `https://gigzii-backend-e41i.vercel.app`;
+  const url = `https://gigzi-dev.vercel.app`;
 
   useEffect(() => {
     async function fetchOrder() {
