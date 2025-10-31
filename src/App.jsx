@@ -6,6 +6,7 @@ import Success from "./components/Success";
 import Privacy from "./components/Privacy";
 import Register from "./components/Register";
 import InternshipPage from "./components/InternshipPage";
+import Yash from "./components/Yash";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/register" element={<Register />} />
         <Route path="/applyIntern" element={<InternshipPage />} />
+        <Route path="/rak" element={<Yash />} />
       </Routes>
     </BrowserRouter>
   );
