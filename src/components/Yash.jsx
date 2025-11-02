@@ -45,7 +45,7 @@ const Yash = () => {
         </h1>
 
         <p className="text-lg text-gray-700 leading-relaxed mb-4">
-          Hey <span className="text-rose-500 font-semibold">Rakgina</span>,  
+          Hey <span className="text-rose-500 font-semibold">Rak</span>,  
           this page isn’t just a website — it’s a piece of my heart, wrapped in
           code and colors that remind me of you. You’re the softest thought that
           passes my mind every morning and the calm that ends my nights. 💞
