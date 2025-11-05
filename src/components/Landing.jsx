@@ -125,13 +125,28 @@ export default function ComingSoon() {
           </button>
         </form>
 
-        {/* Register Button */}
-        <Link
-          to="/register"
-          className="mt-6 inline-block bg-white text-purple-700 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition transform hover:scale-105"
-        >
-          Register as Artist
-        </Link>
+        {/* Register + Play Store Buttons */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-6">
+          <Link
+            to="/register"
+            className="bg-white text-purple-700 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition transform hover:scale-105"
+          >
+            Register as Artist
+          </Link>
+
+          {/* Play Store Badge */}
+          <a
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+              alt="Get it on Google Play"
+              className="h-14 md:h-16 hover:scale-105 transition transform"
+            />
+          </a>
+        </div>
       </section>
 
       {/* SNEAK PEEK SECTION */}
