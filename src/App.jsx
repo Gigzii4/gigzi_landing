@@ -18,7 +18,7 @@ function App() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/register" element={<Register />} />
         <Route path="/applyIntern" element={<InternshipPage />} />
-        <Route path="/3bhk" element={<Yash />} />
+        <Route path="/rak" element={<Yash />} />
       </Routes>
     </BrowserRouter>
   );
