@@ -136,7 +136,7 @@ export default function ComingSoon() {
 
           {/* Play Store Badge */}
           <a
-            href=""
+            href="https://play.google.com/store/apps/details?id=com.yash2121.gigzi&hl=en-US&ah=CsEEvfm8Pyh0QgjLYmveiw-mvwc&pli=1"
             target="_blank"
             rel="noopener noreferrer"
           >
