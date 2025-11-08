@@ -67,7 +67,7 @@ const GoodNightRakgina = () => {
         </div>
 
         <h1 className="text-5xl font-extrabold text-pink-300 mb-4 drop-shadow-lg animate-pulse">
-          Good Night, Rakgina 💖
+          Good Morning, Rak 💖
         </h1>
 
         <p className="text-lg text-gray-200 leading-relaxed mb-4">
