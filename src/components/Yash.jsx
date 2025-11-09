@@ -97,7 +97,7 @@ const GoodNightRakgina = () => {
       </div>
 
       <footer className="mt-10 text-sm text-gray-300 opacity-80 z-10 italic">
-        Made with 💖, coffee ☕ & too many thoughts of you — Forever Yours 🌙
+       YASH 
       </footer>
     </div>
   );
