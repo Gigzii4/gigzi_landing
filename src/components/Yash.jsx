@@ -4,7 +4,6 @@ const HiiMyBabe = () => {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-rose-900 via-pink-800 to-fuchsia-900 text-white font-[Poppins] text-center overflow-hidden relative">
       
-      {/* Floating Emojis */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(30)].map((_, i) => (
           <div
@@ -22,7 +21,6 @@ const HiiMyBabe = () => {
         ))}
       </div>
 
-      {/* Main Message */}
       <h1 className="text-5xl sm:text-6xl font-extrabold text-pink-300 drop-shadow-lg animate-pulse z-10">
         Hii my universe 💞
       </h1>
@@ -35,7 +33,6 @@ const HiiMyBabe = () => {
         Love u alot 💫
       </p>
 
-      {/* Glowing Aura */}
       <div className="absolute w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
 
       <footer className="mt-20 text-sm text-gray-300 italic z-10">
