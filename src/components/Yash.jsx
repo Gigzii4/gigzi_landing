@@ -26,7 +26,7 @@ const HiiMyBabe = () => {
       </h1>
 
       <p className="text-2xl sm:text-3xl mt-4 text-pink-200 font-semibold animate-bounce z-10">
-        my jaan 💖 my baccha 🐣 my cheesecake 🍰
+       
       </p>
 
       <p className="text-3xl sm:text-4xl mt-6 text-pink-100 font-bold animate-[pulse_2s_ease-in-out_infinite] z-10">
