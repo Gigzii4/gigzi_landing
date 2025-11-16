@@ -30,7 +30,7 @@ const HiiMyBabe = () => {
       </p>
 
       <p className="text-3xl sm:text-4xl mt-6 text-pink-100 font-bold animate-[pulse_2s_ease-in-out_infinite] z-10">
-        Love u alot 💫
+       💫
       </p>
 
       <div className="absolute w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
