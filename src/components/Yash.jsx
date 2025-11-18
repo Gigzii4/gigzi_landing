@@ -37,7 +37,7 @@ const HiiMyBabe = () => {
       <div className="absolute w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
 
       <footer className="mt-20 text-sm text-gray-300 italic z-10">
-        — Yours, Yash 💕
+        — Yours, Yashhh 💕
       </footer>
     </div>
   );
