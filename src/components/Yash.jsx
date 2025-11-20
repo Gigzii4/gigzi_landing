@@ -22,7 +22,7 @@ const HiiMyBabe = () => {
       </div>
 
       <h1 className="text-5xl sm:text-6xl font-extrabold text-pink-300 drop-shadow-lg animate-pulse z-10">
-        Hii my universe 💞
+        I Love You ,Pillu 💞
       </h1>
 
       <p className="text-2xl sm:text-3xl mt-4 text-pink-200 font-semibold animate-bounce z-10">
@@ -30,9 +30,10 @@ const HiiMyBabe = () => {
       </p>
 
       <p className="text-3xl sm:text-4xl mt-6 text-pink-100 font-bold animate-[pulse_2s_ease-in-out_infinite] z-10">
-       💫💫💫💫💫💫💫💫💫💫💫💫💫💫💫💫💫💫💫💫💫💫💫💫💫💫💫
-                  💫💫💫💫💫💫💫💫💫💫💫💫💫💫💫💫💫
-                        💫💫💫💫💫💫💫💫💫💫💫💫💫
+       
+       <br/>
+       💫💫💫💫💫💫💫💫💫💫💫
+                  💫💫💫💫💫💫💫💫💫💫💫💫
       </p>
 
       <div className="absolute w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
