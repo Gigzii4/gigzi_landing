@@ -91,7 +91,6 @@ export default function ComingSoon() {
         <div className="absolute w-[200%] h-96 bg-white/10 rounded-full top-20 animate-[wave_30s_linear_infinite]"></div>
       </div>
 
-      {/* HERO SECTION */}
       <section className="pt-32 pb-24 px-6 text-center text-white">
         <h1 className="text-4xl md:text-7xl font-extrabold mb-4 animate-pulse">
           Gigzi is Launching Soon 🚀
@@ -113,7 +112,6 @@ export default function ComingSoon() {
           ))}
         </div>
 
-        {/* Newsletter Signup */}
         <form className="flex flex-col md:flex-row gap-3 justify-center mb-6">
           <input
             type="email"
@@ -125,7 +123,6 @@ export default function ComingSoon() {
           </button>
         </form>
 
-        {/* Register + Play Store Buttons */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-6">
           <Link
             to="/register"
@@ -134,7 +131,6 @@ export default function ComingSoon() {
             Register as Artist
           </Link>
 
-          {/* Play Store Badge */}
           <a
             href="https://play.google.com/store/apps/details?id=com.yash2121.gigzi&hl=en-US&ah=CsEEvfm8Pyh0QgjLYmveiw-mvwc&pli=1"
             target="_blank"
@@ -149,7 +145,6 @@ export default function ComingSoon() {
         </div>
       </section>
 
-      {/* SNEAK PEEK SECTION */}
       <section className="bg-white/70 backdrop-blur-md py-20 w-full text-center text-purple-900">
         <h2 className="text-3xl font-bold mb-10">What’s Coming with Gigzi ✨</h2>
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-6">
@@ -169,7 +164,6 @@ export default function ComingSoon() {
         </div>
       </section>
 
-      {/* TESTIMONIALS SECTION */}
       <section className="py-20 bg-gradient-to-t from-purple-100 via-white to-white w-full text-center">
         <h2 className="text-3xl font-bold text-purple-800 mb-10">What People Say 💬</h2>
         <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto px-6">
