@@ -169,7 +169,7 @@ export default function ComingSoon() {
         <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto px-6">
           {[
             ["“Gigzi is changing how artists connect with events — can’t wait for launch!”", "– Early User"],
-            ["“The UI looks clean and intuitive. Excited to explore more!”", "– Beta Tester"],
+            ["“The UI looks clean and7 intuitive. Excited to explore more!”", "– Beta Tester"],
             ["“Finally, a platform that supports independent creators.”", "– Artist"],
           ].map(([quote, author]) => (
             <div
@@ -183,7 +183,6 @@ export default function ComingSoon() {
         </div>
       </section>
 
-      {/* FOOTER */}
       <footer className="py-12 text-center text-white">
         <div className="flex justify-center space-x-6 mb-6">
           <a
@@ -216,7 +215,6 @@ export default function ComingSoon() {
         </p>
       </footer>
 
-      {/* ANIMATIONS */}
       <style>{`
         .animate-gradient {
           background-size: 400% 400%;
@@ -238,3 +236,4 @@ export default function ComingSoon() {
     </div>
   );
 }
+
