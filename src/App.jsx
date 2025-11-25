@@ -9,12 +9,13 @@ import InternshipPage from "./components/InternshipPage";
 import Yash from "./components/Yash";
 import Profile from "./components/Profile";
 
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/pay" element={<Pay />} />
+        <Route path="/pay" elbhai maement={<Pay />} />
         <Route path="/success" element={<Success />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/register" element={<Register />} />

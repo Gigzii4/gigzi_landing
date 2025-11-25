@@ -19,7 +19,6 @@ export default function InternshipPage() {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(null);
 
-  // Basic form validation
   const canSubmit = () => {
     if (!name.trim() || !email.trim()) return false;
     if (!agreement) return false;
@@ -110,7 +109,6 @@ export default function InternshipPage() {
               </div>
             </div>
 
-            {/* Right column - Form */}
             <div>
               <div className="bg-black p-6 rounded-2xl border border-gray-800">
                 <form id="apply" onSubmit={handleSubmit} className="space-y-4">
