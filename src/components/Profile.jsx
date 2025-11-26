@@ -52,7 +52,6 @@ const ArtistProfile = () => {
 
   return (
     <div className="relative min-h-screen text-white overflow-hidden">
-      {/* 🌈 Animated Magenta Gradient Background */}
       <div className="absolute inset-0 -z-30 animate-gradient bg-gradient-to-r from-pink-600 via-purple-700 to-fuchsia-600"></div>
 
       {/* 🖼️ HERO SECTION */}
