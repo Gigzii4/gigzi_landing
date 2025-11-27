@@ -38,7 +38,7 @@ const ComebackPlan = () => {
           ULTIMATE GOAL
         </h1>
         <p className="text-center text-xl text-gray-300 mt-2 tracking-wide">
-          TOP PLACEMENT · HIGH-PAYING SDE ROLE 🚀
+          TOP PLACEMENT · HIGH-PAYING SDE ROLE 
         </p>
 
         {/* Divider */}
