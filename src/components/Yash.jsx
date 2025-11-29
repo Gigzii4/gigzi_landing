@@ -39,7 +39,7 @@ const ComebackPlan = () => {
         </h1>
         <p className="text-center text-xl text-gray-300 mt-2 tracking-wide">
           TOP PLACEMENT · HIGH-PAYING SDE ROLE 
-          Yash AGhane Plan it is 
+          Yash Aghane Plan it is 
         </p>
 
         {/* Divider */}
