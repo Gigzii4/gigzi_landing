@@ -8,7 +8,7 @@ const BirthdayComebackPlan = () => {
     "Launch Gigzi officially & build powerful AI features",
     "Get top internship → top placement",
     "Balance health, relationship, and personal peace",
-    "Become disciplined: mind > emotions",
+    "Become disciplined: Carrer > mind > emotions",
   ];
 
   const principles = [
