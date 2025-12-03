@@ -19,7 +19,7 @@ export default function Success() {
           { withCredentials: true }
         );
 
-        setStatus("✅ Payment succcessful!");
+        setStatus("✅ Payment succcesssful!");
 
         window.ReactNativeWebView?.postMessage(
           JSON.stringify({ type: "payment-status", status: "success" })
