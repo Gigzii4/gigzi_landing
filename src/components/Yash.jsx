@@ -22,6 +22,7 @@ const BirthdayComebackPlan = () => {
     "Never skip: DSA + Dev (at least 1 hour)",
     "20–25 min walk daily = mental reset",
     "Keep room clean → mind automatically becomes clean",
+    "No matter who stays or who leaves, yash aghane will win ultimately",
   ];
 
   return (
