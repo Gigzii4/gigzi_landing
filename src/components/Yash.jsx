@@ -33,13 +33,9 @@ const BirthdayComebackPlan = () => {
         <div className="absolute -top-20 -left-10 w-60 h-60 bg-pink-500/25 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
 
-        {/* Nicknames */}
-        <div className="text-lg text-pink-200 font-semibold mb-6 tracking-wide animate-pulse">
-          My Cheesecake 🍰 · My Pillu 🐣 · My Baby 💞
-        </div>
-
-        <h1 className="text-5xl font-extrabold text-pink-300 mb-4 drop-shadow-lg animate-pulse">
-          Good Morning, Rak 💖
+        {/* Happy Birthday Title */}
+        <h1 className="text-4xl font-extrabold text-pink-300 drop-shadow-[0_0_12px_#ff30ff] text-center">
+          🎉 HAPPY BIRTHDAY YASH 🎉
         </h1>
 
         <p className="text-center text-lg text-gray-300 mt-3">

@@ -48,7 +48,7 @@ export default function ArtistSignupWeb() {
   useEffect(() => {
     const fetchEvents = async () => {
       const res = await getMethod("/admin/eventCat/getEventCategories");
-      if (res.status) setEvents(res.data || []|| );
+      if (res.status) setEvents(res.data);
     };
     fetchEvents();
   }, []);
