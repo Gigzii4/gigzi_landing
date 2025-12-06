@@ -1,65 +1,37 @@
 import React from "react";
-import { Heart, Moon, Sparkles } from "lucide-react";
-import rakgina from ".././assets/yash.jpg"; // 🩷 Replace this with her actual image path
 
-const GoodNightRakgina = () => {
-  const dialogues = [
-    { text: "You’re my peace 🌙", color: "from-pink-400 to-rose-500" },
-    { text: "Crazy girl 💕", color: "from-purple-400 to-fuchsia-500" },
-    { text: "My favorite chaos 😍", color: "from-red-400 to-pink-500" },
-    { text: "Good night, sunshine ☀️", color: "from-yellow-400 to-orange-500" },
-    { text: "Dream of us 💭", color: "from-indigo-400 to-blue-500" },
-    { text: "Forever mine 💫", color: "from-teal-400 to-emerald-500" },
+const BirthdayComebackPlan = () => {
+  const goals = [
+    "Start my 20s with focus, discipline, and clarity",
+    "Crack DSA fundamentals and problem-solving",
+    "Master SQL + Development + Machine Coding + System Design",
+    "Launch Gigzi officially & build powerful AI features",
+    "Get top internship → top placement",
+    "Balance health, relationship, and personal peace",
+    "Become disciplined: Carrer > mind > emotions",
+  ];
+
+  const principles = [
+    "Birthday resolution: NO DISTRACTIONS YEAR",
+    "Sit at desk → brain switches to study mode instantly",
+    "Focus on one task → no multitasking",
+    "Be busy so you don’t overthink",
+    "Short breaks only, never long distractions",
+    "Only productive conversations",
+    "Respect time blocks",
+    "Never skip: DSA + Dev (at least 1 hour)",
+    "20–25 min walk daily = mental reset",
+    "Keep room clean → mind automatically becomes clean",
+    "No matter who stays or who leaves, yash aghane will win ultimately",
   ];
 
   return (
-    <div className="relative min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-indigo-950 via-purple-900 to-pink-900 text-center p-6 overflow-hidden font-[Poppins] text-white">
-      
-      {/* Floating Emoji Animation */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(35)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute opacity-40 animate-bounce"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              fontSize: `${Math.random() * 25 + 10}px`,
-              animationDelay: `${Math.random() * 4}s`,
-            }}
-          >
-            {["💖", "🌙", "✨", "💫"][Math.floor(Math.random() * 4)]}
-          </div>
-        ))}
-      </div>
+    <div className="min-h-screen bg-[#050505] text-white font-[Poppins] p-6 flex justify-center items-center">
+      <div className="max-w-3xl w-full bg-[#0b0b0f] border border-[#27272f] p-8 rounded-2xl shadow-[0_0_25px_2px_#ff00ff30] backdrop-blur-xl relative overflow-hidden">
 
-      {/* Floating Dialogues */}
-      <div className="mt-12 flex flex-wrap justify-center gap-3 max-w-2xl z-10">
-        {dialogues.map((d, i) => (
-          <div
-            key={i}
-            className={`px-4 py-2 rounded-full bg-gradient-to-r ${d.color} text-white font-semibold shadow-lg animate-bounce`}
-            style={{
-              animationDelay: `${i * 0.3}s`,
-            }}
-          >
-            “{d.text}”
-          </div>
-        ))}
-      </div>
-
-      {/* Main Card */}
-      <div className="relative bg-white/10 backdrop-blur-2xl rounded-3xl shadow-2xl p-10 max-w-lg border border-white/20 z-10 mt-10">
-        {/* Her Image */}
-        <div className="relative w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-pink-400 shadow-lg shadow-pink-500/50 animate-[pulse_3s_ease-in-out_infinite]">
-          <img
-            src={rakgina}
-            alt="Rakgina"
-            className="w-full h-full object-cover"
-          />
-          {/* Glowing Aura */}
-          <div className="absolute inset-0 rounded-full bg-pink-500/20 blur-2xl animate-pulse"></div>
-        </div>
+        {/* Neon glow rings */}
+        <div className="absolute -top-20 -left-10 w-60 h-60 bg-pink-500/25 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
 
         {/* Nicknames */}
         <div className="text-lg text-pink-200 font-semibold mb-6 tracking-wide animate-pulse">
@@ -67,40 +39,50 @@ const GoodNightRakgina = () => {
         </div>
 
         <h1 className="text-5xl font-extrabold text-pink-300 mb-4 drop-shadow-lg animate-pulse">
-          Good , Rak 💖
+          Good Morning, Rak 💖
         </h1>
 
-        <p className="text-lg text-gray-200 leading-relaxed mb-4">
-          Another day may end, but thoughts of you never do 🌙.  
-          You make even the simplest moments feel magical ✨
+        <p className="text-center text-lg text-gray-300 mt-3">
+          <span className="text-pink-400 font-semibold">Age 20 — Comeback Era Starts Today</span>
         </p>
 
-        <p className="text-gray-300 mb-4 leading-relaxed">
-          Close your eyes and drift into sweet dreams, knowing someone out here
-          is smiling just thinking of you 💭💫
+        <p className="text-center text-gray-400 mt-1 italic">
+          “This year I upgrade my life — mindset, skills, career, everything.”
         </p>
 
-        <p className="text-gray-300 mb-4 leading-relaxed">
-          Sleep peacefully, my favorite person.  
-          Tomorrow’s another day to annoy each other lovingly 😜
-        </p>
+        {/* Divider */}
+        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-pink-400 to-transparent my-6"></div>
 
-        <div className="mt-8 flex justify-center items-center gap-4 text-pink-300">
-          <Moon className="animate-bounce" size={28} />
-          <Heart className="animate-bounce" size={28} />
-          <Sparkles className="animate-bounce" size={28} />
-        </div>
+        {/* Birthday Goals */}
+        <h2 className="text-2xl font-semibold text-purple-300 drop-shadow-[0_0_8px_#b855ff] mb-3">
+          🎯 Birthday Goals (Age 20)
+        </h2>
+        <ul className="space-y-3 text-gray-200 text-lg">
+          {goals.map((g, i) => (
+            <li key={i} className="hover:text-pink-300 transition">• {g}</li>
+          ))}
+        </ul>
 
-        <p className="mt-6 text-lg font-semibold text-gray-200 italic">
-          — Yours always, Yash 💞
+        {/* Divider */}
+        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-purple-400 to-transparent my-6"></div>
+
+        {/* Birthday Principles */}
+        <h2 className="text-2xl font-semibold text-pink-300 drop-shadow-[0_0_8px_#ff50ff] mb-3">
+          ⚡ Birthday Year Principles (Age 20 Rulebook)
+        </h2>
+        <ul className="space-y-3 text-gray-200 text-lg">
+          {principles.map((p, i) => (
+            <li key={i} className="hover:text-purple-300 transition">• {p}</li>
+          ))}
+        </ul>
+
+        {/* Footer Quote */}
+        <p className="text-center text-gray-500 mt-6 text-sm">
+          “This year belongs to me. No excuses, only growth.”
         </p>
       </div>
-
-      <footer className="mt-10 text-sm text-gray-300 opacity-80 z-10 italic">
-       YASH 
-      </footer>
     </div>
   );
 };
 
-export default GoodNightRakgina;
+export default BirthdayComebackPlan;

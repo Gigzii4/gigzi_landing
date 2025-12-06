@@ -19,7 +19,6 @@ export default function InternshipPage() {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(null);
 
-  // Basic form validation
   const canSubmit = () => {
     if (!name.trim() || !email.trim()) return false;
     if (!agreement) return false;
@@ -65,7 +64,7 @@ export default function InternshipPage() {
     <div className="min-h-screen bg-black text-white font-sans py-12 px-4">
       <div className="max-w-5xl mx-auto">
         <header className="text-center mb-10">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-purple-400">Join Gigzi — Internship & Training</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-purple-400">Join Gigzi — Internship & Training Program</h1>
           <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
             We're hiring interns for Gigzi (registered under Government of Maharashtra). If you're skilled and can contribute to production code, the internship is free. If you're still learning, join our 2-month training + internship program for <strong>₹2,500</strong> and get mentorship, certificate, and LOR.
           </p>
@@ -110,7 +109,6 @@ export default function InternshipPage() {
               </div>
             </div>
 
-            {/* Right column - Form */}
             <div>
               <div className="bg-black p-6 rounded-2xl border border-gray-800">
                 <form id="apply" onSubmit={handleSubmit} className="space-y-4">

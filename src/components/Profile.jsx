@@ -52,7 +52,6 @@ const ArtistProfile = () => {
 
   return (
     <div className="relative min-h-screen text-white overflow-hidden">
-      {/* 🌈 Animated Magenta Gradient Background */}
       <div className="absolute inset-0 -z-30 animate-gradient bg-gradient-to-r from-pink-600 via-purple-700 to-fuchsia-600"></div>
 
       {/* 🖼️ HERO SECTION */}
@@ -77,7 +76,7 @@ const ArtistProfile = () => {
             className="w-44 h-44 rounded-full object-cover border-4 border-pink-400 shadow-[0_0_30px_#ff4fc4] mx-auto mb-5"
           />
           <h1 className="text-5xl md:text-6xl font-extrabold text-pink-300 drop-shadow-lg">
-            {artist.name}
+            {artist?.name}
           </h1>
           <p className="text-lg text-pink-100 mt-2">{artist.genre.join(" • ")}</p>
           <p className="text-pink-200 flex justify-center items-center gap-2 mt-2">
@@ -109,7 +108,7 @@ const ArtistProfile = () => {
       {/* 💖 ABOUT SECTION */}
       <section className="max-w-5xl mx-auto py-16 px-6 text-center">
         <h2 className="text-3xl font-bold text-pink-300 mb-6">
-          About {artist.name}
+          About {artist?.name}
         </h2>
         <p className="text-pink-100 text-lg leading-relaxed mb-6">{artist.bio}</p>
         <p className="flex justify-center items-center text-pink-200 gap-2 mb-3">
