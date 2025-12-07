@@ -5,6 +5,18 @@ function Pay() {
   const id = new URLSearchParams(window.location.search).get("orderId");
   const url = `https://gigzi-dev.vercel.app`;
 
+  // Safe message sender
+  const sendToApp = (data) => {
+    try {
+      if (window.ReactNativeWebView) {
+        window.ReactNativeWebView.postMessage(JSON.stringify(data));
+      }
+      console.log("[Pay Page]:", data);
+    } catch (err) {
+      console.log("Message send failed:", err);
+    }
+  };
+
   useEffect(() => {
     async function fetchOrder() {
       try {
@@ -12,59 +24,61 @@ function Pay() {
           withCredentials: true,
         });
 
-        const data = res.data.order; 
+        const data = res.data.order;
 
-        // Log helper to send messages to React Native app
-        const postLog = (msg) => {
-          console.log("[Pay Page]:", msg); // Also log to browser console
-          window.ReactNativeWebView?.postMessage(
-            JSON.stringify({ type: "log", msg })
-          );
-        };
-
-        postLog("Fetched order data: " + JSON.stringify(data));
-
-        if (!data.razorpayOrderId || !data.amount) {
-          postLog("Error: Invalid order data");
-          alert("Order data invalid. Cannot proceed with payment.");
+        if (!data?.razorpayOrderId || !data?.amount) {
+          sendToApp({ type: "log", msg: "Invalid order data" });
+          alert("Invalid order information");
           return;
         }
 
+        sendToApp({ type: "log", msg: "Order fetched successfully" });
+
         const options = {
           key: import.meta.env.VITE_RAZORPAY_KEY,
-          amount: data.amount * 100, // in paise
+          amount: data.amount * 100,
           currency: "INR",
           name: "Gigzi",
-          description: "Booking Artist",
+          description: "Artist Booking",
           order_id: data.razorpayOrderId,
+
           handler: function (response) {
-            const { razorpay_payment_id, razorpay_order_id, razorpay_signature } = response;
+            sendToApp({
+              type: "payment-status",
+              status: "success",
+              data: response,
+            });
 
-            postLog("Payment Success: " + JSON.stringify(response));
-
-            // Redirect to success page with payment details
-            const successUrl = `/success?payment_id=${razorpay_payment_id}&order_id=${razorpay_order_id}&signature=${razorpay_signature}`;
+            // Redirect for WebView URL detection
+            const successUrl = `/success?paid=true&payment_id=${response.razorpay_payment_id}`;
             window.location.href = successUrl;
           },
+
           theme: { color: "#3399cc" },
         };
 
         const rzp = new window.Razorpay(options);
 
         rzp.on("payment.failed", function (response) {
-          postLog("Payment Failed: " + JSON.stringify(response.error));
-          alert("Payment Failed: " + response.error.description);
+          sendToApp({
+            type: "payment-status",
+            status: "failed",
+            error: response.error,
+          });
+
+          // Redirect so WebView can detect failed
+          const failedUrl = `/failed?error=true&reason=${encodeURIComponent(
+            response.error.description
+          )}`;
+          window.location.href = failedUrl;
         });
 
         rzp.open();
       } catch (error) {
-        console.error("Fetch Order Error:", error);
-        window.ReactNativeWebView?.postMessage(
-          JSON.stringify({
-            type: "log",
-            msg: "Payment error: " + error.message,
-          })
-        );
+        sendToApp({
+          type: "log",
+          msg: "Payment load error: " + error.message,
+        });
       }
     }
 
@@ -73,7 +87,7 @@ function Pay() {
 
   return (
     <div className="flex justify-center items-center w-full h-full">
-      <p>Loading Payment.....</p>
+      <p>Loading Payment...</p>
     </div>
   );
 }
