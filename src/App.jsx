@@ -15,7 +15,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/pay" elbhai maement={<Pay />} />
+        <Route path="/pay" element={<Pay />} />
         <Route path="/success" element={<Success />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/register" element={<Register />} />
