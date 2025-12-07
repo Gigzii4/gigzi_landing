@@ -3,90 +3,59 @@ import axios from "axios";
 
 function Pay() {
   const id = new URLSearchParams(window.location.search).get("orderId");
-  const url = `https://gigzi-dev.vercel.app`;
+  const api = "https://gigzi-dev.vercel.app";
 
-  // Safe message sender
-  const sendToApp = (data) => {
-    try {
-      if (window.ReactNativeWebView) {
-        window.ReactNativeWebView.postMessage(JSON.stringify(data));
-      }
-      console.log("[Pay Page]:", data);
-    } catch (err) {
-      console.log("Message send failed:", err);
+  const send = (data) => {
+    if (window.ReactNativeWebView) {
+      window.ReactNativeWebView.postMessage(JSON.stringify(data));
     }
   };
 
   useEffect(() => {
-    async function fetchOrder() {
+    async function startPayment() {
       try {
-        const res = await axios.get(`${url}/client/order/getOrderDetails/${id}`, {
-          withCredentials: true,
-        });
+        const res = await axios.get(`${api}/client/order/getOrderDetails/${id}`);
+        const order = res.data.order;
 
-        const data = res.data.order;
-
-        if (!data?.razorpayOrderId || !data?.amount) {
-          sendToApp({ type: "log", msg: "Invalid order data" });
-          alert("Invalid order information");
+        if (!order?.razorpayOrderId) {
+          alert("Invalid Order");
           return;
         }
 
-        sendToApp({ type: "log", msg: "Order fetched successfully" });
-
         const options = {
           key: import.meta.env.VITE_RAZORPAY_KEY,
-          amount: data.amount * 100,
+          amount: order.amount * 100,
           currency: "INR",
           name: "Gigzi",
           description: "Artist Booking",
-          order_id: data.razorpayOrderId,
+          order_id: order.razorpayOrderId,
 
           handler: function (response) {
-            sendToApp({
-              type: "payment-status",
-              status: "success",
-              data: response,
-            });
-
-            // Redirect for WebView URL detection
-            const successUrl = `/success?paid=true&payment_id=${response.razorpay_payment_id}`;
-            window.location.href = successUrl;
+            send({ type: "payment-status", status: "success", data: response });
+            window.location.href = "/success";
           },
 
-          theme: { color: "#3399cc" },
+          theme: { color: "#4D55CC" },
         };
 
         const rzp = new window.Razorpay(options);
 
         rzp.on("payment.failed", function (response) {
-          sendToApp({
-            type: "payment-status",
-            status: "failed",
-            error: response.error,
-          });
-
-          // Redirect so WebView can detect failed
-          const failedUrl = `/failed?error=true&reason=${encodeURIComponent(
-            response.error.description
-          )}`;
-          window.location.href = failedUrl;
+          send({ type: "payment-status", status: "failed", error: response.error });
+          window.location.href = "/failed";
         });
 
         rzp.open();
-      } catch (error) {
-        sendToApp({
-          type: "log",
-          msg: "Payment load error: " + error.message,
-        });
+      } catch (err) {
+        send({ type: "payment-status", status: "failed", error: err.message });
       }
     }
 
-    fetchOrder();
+    startPayment();
   }, [id]);
 
   return (
-    <div className="flex justify-center items-center w-full h-full">
+    <div className="flex justify-center items-center h-screen">
       <p>Loading Payment...</p>
     </div>
   );
