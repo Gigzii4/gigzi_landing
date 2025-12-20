@@ -14,10 +14,19 @@ function Pay() {
   useEffect(() => {
     async function startPayment() {
       try {
-        const res = await axios.get(`${api}/client/order/getOrderDetails/${id}`);
+        // Use public endpoint for payment gateway (no auth required)
+        const res = await axios.get(`${api}/client/order/getOrderDetailsForPayment/${id}`);
+        
+        if (!res.data?.success || !res.data?.order) {
+          send({ type: "payment-status", status: "failed", error: "Invalid Order" });
+          alert("Invalid Order");
+          return;
+        }
+
         const order = res.data.order;
 
         if (!order?.razorpayOrderId) {
+          send({ type: "payment-status", status: "failed", error: "Invalid Order ID" });
           alert("Invalid Order");
           return;
         }
@@ -47,7 +56,10 @@ function Pay() {
 
         rzp.open();
       } catch (err) {
-        send({ type: "payment-status", status: "failed", error: err.message });
+        console.error("Payment initialization error:", err);
+        const errorMessage = err.response?.data?.error || err.message || "Failed to initialize payment";
+        send({ type: "payment-status", status: "failed", error: errorMessage });
+        alert(`Payment Error: ${errorMessage}`);
       }
     }
 
