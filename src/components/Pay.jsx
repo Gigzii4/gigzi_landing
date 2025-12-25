@@ -3,7 +3,28 @@ import axios from "axios";
 
 function Pay() {
   const id = new URLSearchParams(window.location.search).get("orderId");
-  const api = "https://gigzi-dev.vercel.app";
+  const api =
+    import.meta.env.VITE_BACKEND_URL ||
+    import.meta.env.VITE_API_URL ||
+    import.meta.env.VITE_API_BASE_URL ||
+    "https://gigzi-dev.vercel.app";
+
+  // Env design (NO PROD flag required):
+  // - If you provide a single key, we use it.
+  // - If you provide both LIVE and TEST, we prefer LIVE by default.
+  //
+  // Supported env var names (prefer *_ID for clarity):
+  // - VITE_RAZORPAY_KEY_ID (single key to use)
+  // - VITE_RAZORPAY_KEY_ID_LIVE / VITE_RAZORPAY_KEY_ID_TEST
+  // - VITE_RAZORPAY_KEY (legacy single key)
+  // - VITE_RAZORPAY_KEY_LIVE / VITE_RAZORPAY_KEY_TEST (legacy)
+  const razorpayKey =
+    import.meta.env.VITE_RAZORPAY_KEY_ID ||
+    import.meta.env.VITE_RAZORPAY_KEY_ID_LIVE ||
+    import.meta.env.VITE_RAZORPAY_KEY_LIVE ||
+    import.meta.env.VITE_RAZORPAY_KEY_ID_TEST ||
+    import.meta.env.VITE_RAZORPAY_KEY_TEST ||
+    import.meta.env.VITE_RAZORPAY_KEY;
 
   const send = (data) => {
     if (window.ReactNativeWebView) {
@@ -14,6 +35,12 @@ function Pay() {
   useEffect(() => {
     async function startPayment() {
       try {
+        if (!razorpayKey) {
+          throw new Error(
+            "Razorpay key is missing. Set VITE_RAZORPAY_KEY_ID (or *_LIVE / *_TEST) in your .env file."
+          );
+        }
+
         // Use public endpoint for payment gateway (no auth required)
         const res = await axios.get(`${api}/client/order/getOrderDetailsForPayment/${id}`);
         
@@ -32,7 +59,7 @@ function Pay() {
         }
 
         const options = {
-          key: import.meta.env.VITE_RAZORPAY_KEY,
+          key: razorpayKey,
           amount: order.amount * 100,
           currency: "INR",
           name: "Gigzi",
