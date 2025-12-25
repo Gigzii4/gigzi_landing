@@ -18,6 +18,7 @@ function Pay() {
   // - VITE_RAZORPAY_KEY_ID_LIVE / VITE_RAZORPAY_KEY_ID_TEST
   // - VITE_RAZORPAY_KEY (legacy single key)
   // - VITE_RAZORPAY_KEY_LIVE / VITE_RAZORPAY_KEY_TEST (legacy)
+  
   const razorpayKey =
     import.meta.env.VITE_RAZORPAY_KEY_ID ||
     import.meta.env.VITE_RAZORPAY_KEY_ID_LIVE ||
@@ -35,9 +36,22 @@ function Pay() {
   useEffect(() => {
     async function startPayment() {
       try {
-        if (!razorpayKey) {
+        // Prefer the key id from backend (prevents test/live mismatch with order_id).
+        // Fallback to env if backend endpoint isn't available.
+        let keyFromServer = null;
+        try {
+          const keyRes = await axios.get(`${api}/client/order/public/razorpayKey`);
+          if (keyRes?.data?.success && keyRes.data.keyId) {
+            keyFromServer = keyRes.data.keyId;
+          }
+        } catch {
+          // ignore and fallback to env
+        }
+
+        const finalKey = keyFromServer || razorpayKey;
+        if (!finalKey) {
           throw new Error(
-            "Razorpay key is missing. Set VITE_RAZORPAY_KEY_ID (or *_LIVE / *_TEST) in your .env file."
+            "Razorpay key is missing. Configure it on backend (/client/order/public/razorpayKey) or set VITE_RAZORPAY_KEY_ID in your .env."
           );
         }
 
@@ -59,7 +73,7 @@ function Pay() {
         }
 
         const options = {
-          key: razorpayKey,
+          key: finalKey,
           amount: order.amount * 100,
           currency: "INR",
           name: "Gigzi",
