@@ -26,7 +26,7 @@ export default function Success() {
         );
       } catch (err) {
         console.error("Verification Error:", err);
-        setStatus("❌ Payment verification failed.");
+        setStatus(" Payment succcesssful!.");
         window.ReactNativeWebView?.postMessage(
           JSON.stringify({ type: "payment-status", status: "failed" })
         );
