@@ -132,7 +132,30 @@ export default function ComingSoon() {
         <div className="absolute w-[200%] h-96 bg-white/10 rounded-full top-20 animate-[wave_30s_linear_infinite]"></div>
       </div>
 
-      <section className="pt-32 pb-24 px-6 text-center text-white">
+      {/* Navigation Header */}
+      <nav className="w-full z-50 relative pt-6 pb-4 px-6">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <Link to="/" className="text-2xl font-bold text-white drop-shadow-lg">
+            Gigzi
+          </Link>
+          <div className="flex items-center gap-4">
+            <Link
+              to="/preauth"
+              className="bg-white/20 backdrop-blur-xl text-white px-6 py-2 rounded-full font-semibold hover:bg-white/30 transition-all border-2 border-white/30 hover:border-white/50"
+            >
+              Get Started
+            </Link>
+            <Link
+              to="/login"
+              className="bg-white text-purple-600 px-6 py-2 rounded-full font-semibold hover:bg-white/90 transition-all shadow-lg hover:shadow-xl"
+            >
+              Login
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      <section className="pt-16 pb-24 px-6 text-center text-white">
         <h1 className="text-4xl md:text-7xl font-extrabold mb-4 animate-pulse">
           Gigzi is Launching Soon 🚀
         </h1>
@@ -209,7 +232,15 @@ export default function ComingSoon() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
           <Link
-            to="/register"
+            to="/preauth"
+            className="group bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-8 py-4 rounded-full font-bold hover:from-yellow-500 hover:to-orange-600 transition-all transform hover:scale-105 shadow-xl flex items-center gap-2 min-w-[200px] justify-center"
+          >
+            <FaRocket className="text-lg" />
+            <span>Get Started</span>
+          </Link>
+          
+          <Link
+            to="/artist/signup"
             className="group bg-white/20 backdrop-blur-xl text-white px-8 py-4 rounded-full font-bold hover:bg-white/30 transition-all transform hover:scale-105 shadow-xl border-2 border-white/30 hover:border-white/50 flex items-center gap-2 min-w-[200px] justify-center"
           >
             <FaUsers className="text-lg" />

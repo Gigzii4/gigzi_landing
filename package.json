@@ -13,13 +13,15 @@
     "@tailwindcss/vite": "^4.1.8",
     "axios": "^1.9.0",
     "framer-motion": "^12.23.24",
+    "jwt-decode": "^4.0.0",
     "lucide-react": "^0.552.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.5.0",
     "react-multi-select-component": "^4.3.4",
     "react-router-dom": "^7.6.1",
-    "tailwindcss": "^4.1.8"
+    "tailwindcss": "^4.1.8",
+    "zustand": "^4.5.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
