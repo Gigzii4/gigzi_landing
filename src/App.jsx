@@ -60,6 +60,7 @@ function App() {
         <Route path="/preauth" element={<PreAuth />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/pay" element={<Pay />} />
         <Route path="/artist/login" element={<ArtistLogin />} />
         <Route path="/artist/signup" element={<ArtistSignup />} />
         
