@@ -5,7 +5,7 @@ import axios from "axios";
 export default function Success() {
   const [params] = useSearchParams();
   const [status, setStatus] = useState("Validating payment...");
-  const serverURL = import.meta.env.VITE_BACKEND_URL || "https://gigzii-backend-e41i.vercel.app";
+  const serverURL = import.meta.env.VITE_API_URL || "https://gigzii-backend-e41i.vercel.app";
 
   useEffect(() => {
     const verifyPayment = async () => {
