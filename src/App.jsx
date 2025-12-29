@@ -34,6 +34,7 @@ import Privacy from "./pages/Privacy";
 import RecentlyViewed from "./pages/RecentlyViewed";
 import { useAuthStore } from "./store/authStore";
 import Pay from "./components/Pay";
+import Success from "./components/Success";
 
 function AppLayout({ children }) {
   return (
@@ -62,6 +63,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/pay" element={<Pay/>} />
+        <Route path="/success" element={<Success />} />
         <Route path="/artist/login" element={<ArtistLogin />} />
         <Route path="/artist/signup" element={<ArtistSignup />} />
         

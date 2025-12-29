@@ -5,12 +5,13 @@ import axios from "axios";
 export default function Success() {
   const [params] = useSearchParams();
   const [status, setStatus] = useState("Validating payment...");
+  const serverURL = import.meta.env.VITE_BACKEND_URL || "https://gigzii-backend-e41i.vercel.app";
 
   useEffect(() => {
     const verifyPayment = async () => {
       try {
         const res = await axios.post(
-          "https://gigzii-backend-e41i.vercel.app/client/order/verifyPayment",
+          `${serverURL}/client/order/verifyPayment`,
           {
             razorpay_payment_id: params.get("payment_id"),
             razorpay_order_id: params.get("order_id"),
@@ -20,7 +21,7 @@ export default function Success() {
         );
 
         setStatus("✅ Payment succcesssful!");
-
+S
         window.ReactNativeWebView?.postMessage(
           JSON.stringify({ type: "payment-status", status: "success" })
         );
