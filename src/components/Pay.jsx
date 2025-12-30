@@ -6,7 +6,8 @@ function Pay() {
   const api =
     import.meta.env.VITE_BACKEND_URL ||
     import.meta.env.VITE_API_URL ||
-    import.meta.env.VITE_API_BASE_URL
+    import.meta.env.VITE_API_BASE_URL ||
+    "https://gigzi-dev.vercel.app";
 
   // Env design (NO PROD flag required):
   // - If you provide a single key, we use it.
