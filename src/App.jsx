@@ -30,11 +30,11 @@ import Coupons from "./pages/Coupons";
 import Support from "./pages/Support";
 import About from "./pages/About";
 import Terms from "./pages/Terms";
-import Privacy from "./pages/Privacy";
 import RecentlyViewed from "./pages/RecentlyViewed";
 import { useAuthStore } from "./store/authStore";
 import Pay from "./components/Pay";
 import Success from "./components/Success";
+import Privacy from "./components/Privacy";
 
 function AppLayout({ children }) {
   return (
@@ -62,7 +62,9 @@ function App() {
         <Route path="/preauth" element={<PreAuth />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/pay" element={<Pay/>} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/pay" element={<Pay />} />
         <Route path="/success" element={<Success />} />
         <Route path="/artist/login" element={<ArtistLogin />} />
         <Route path="/artist/signup" element={<ArtistSignup />} />
