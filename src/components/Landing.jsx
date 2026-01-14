@@ -248,7 +248,7 @@ export default function ComingSoon() {
           </Link>
 
           <a
-            href="https://play.google.com/store/apps/details?id=com.yash2121.gigzi&hl=en-US&ah=CsEEvfm8Pyh0QgjLYmveiw-mvwc&pli=1"
+            href="https://play.google.com/store/apps/details?id=com.yash2121.gigzi&hl=en_IN"
             target="_blank"
             rel="noopener noreferrer"
             className="group hover:scale-105 transition-transform"
