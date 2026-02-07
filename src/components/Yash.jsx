@@ -1,82 +1,116 @@
 import React from "react";
+import roseImg from "../assets/rose.jpeg";
+import memoryImg from "../assets/memory.jpeg";
 
 const BirthdayComebackPlan = () => {
-  const goals = [
-    "Start my 20s with focus, discipline, and clarity",
-    "Crack DSA fundamentals and problem-solving",
-    "Master SQL + Development + Machine Coding + System Design",
-    "Launch Gigzi officially & build powerful AI features",
-    "Get top internship → top placement",
-    "Balance health, relationship, and personal peace",
-    "Become disciplined: Carrer > mind > emotions",
-  ];
-
-  const principles = [
-    "Birthday resolution: NO DISTRACTIONS YEAR",
-    "Sit at desk → brain switches to study mode instantly",
-    "Focus on one task → no multitasking",
-    "Be busy so you don’t overthink",
-    "Short breaks only, never long distractions",
-    "Only productive conversations",
-    "Respect time blocks",
-    "Never skip: DSA + Dev (at least 1 hour)",
-    "20–25 min walk daily = mental reset",
-    "Keep room clean → mind automatically becomes clean",
-    "No matter who stays or who leaves, yash aghane will win ultimately",
-  ];
-
   return (
-    <div className="min-h-screen bg-[#050505] text-white font-[Poppins] p-6 flex justify-center items-center">
-      <div className="max-w-3xl w-full bg-[#0b0b0f] border border-[#27272f] p-8 rounded-2xl shadow-[0_0_25px_2px_#ff00ff30] backdrop-blur-xl relative overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center font-[Poppins] overflow-hidden bg-black">
 
-        {/* Neon glow rings */}
-        <div className="absolute -top-20 -left-10 w-60 h-60 bg-pink-500/25 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
+      {/* BACKGROUND GLOWS */}
+      <div className="absolute -top-40 -left-40 w-[30rem] h-[30rem] bg-rose-500/20 rounded-full blur-[160px]"></div>
+      <div className="absolute bottom-0 right-0 w-[32rem] h-[32rem] bg-pink-500/20 rounded-full blur-[180px]"></div>
 
-        {/* Happy Birthday Title */}
-        <h1 className="text-4xl font-extrabold text-pink-300 drop-shadow-[0_0_12px_#ff30ff] text-center">
-          🎉 HAPPY BIRTHDAY YASH 🎉
+      {/* MAIN CARD */}
+      <div className="relative z-10 max-w-md w-full bg-[#0b0b12]/90 border border-[#2a2a35] rounded-3xl p-10 backdrop-blur-2xl shadow-[0_0_80px_12px_#ff4d6d30]">
+
+        {/* IMAGE STACK */}
+        <div className="relative flex justify-center mb-8 h-[22rem]">
+
+          {/* MEMORY IMAGE */}
+          <img
+            src={memoryImg}
+            alt="Memory"
+            className="absolute w-52 h-72 object-cover rounded-2xl
+                       grayscale
+                       border border-white/10
+                       shadow-[0_0_40px_#ffffff20]
+                       animate-memorySwap"
+          />
+
+          {/* ROSE IMAGE */}
+          <img
+            src={roseImg}
+            alt="Rose"
+            className="absolute w-52 h-72 object-cover rounded-2xl
+                       border border-rose-400/50
+                       shadow-[0_0_50px_#ff6b81]
+                       animate-roseSwap"
+          />
+
+          {/* GLOW */}
+          <div className="absolute w-56 h-80 rounded-2xl bg-rose-500/20 blur-[70px]"></div>
+        </div>
+
+        {/* TEXT */}
+        <h1 className="text-2xl font-semibold text-center text-rose-300 drop-shadow-[0_0_12px_#ff6b81]">
+          Happy Rose Day 🌹
         </h1>
 
-        <p className="text-center text-lg text-gray-300 mt-3">
-          <span className="text-pink-400 font-semibold">Age 20 — Comeback Era Starts Today</span>
+        <p className="text-center text-gray-300 mt-4 leading-relaxed">
+          Some memories don’t need explanations.
+          <br />
+          They just exist — quietly.
         </p>
 
-        <p className="text-center text-gray-400 mt-1 italic">
-          “This year I upgrade my life — mindset, skills, career, everything.”
+        <p className="text-center mt-7 text-rose-300 font-medium tracking-wide">
+          — For Rutu
         </p>
 
-        {/* Divider */}
-        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-pink-400 to-transparent my-6"></div>
-
-        {/* Birthday Goals */}
-        <h2 className="text-2xl font-semibold text-purple-300 drop-shadow-[0_0_8px_#b855ff] mb-3">
-          🎯 Birthday Goals (Age 20)
-        </h2>
-        <ul className="space-y-3 text-gray-200 text-lg">
-          {goals.map((g, i) => (
-            <li key={i} className="hover:text-pink-300 transition">• {g}</li>
-          ))}
-        </ul>
-
-        {/* Divider */}
-        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-purple-400 to-transparent my-6"></div>
-
-        {/* Birthday Principles */}
-        <h2 className="text-2xl font-semibold text-pink-300 drop-shadow-[0_0_8px_#ff50ff] mb-3">
-          ⚡ Birthday Year Principles (Age 20 Rulebook)
-        </h2>
-        <ul className="space-y-3 text-gray-200 text-lg">
-          {principles.map((p, i) => (
-            <li key={i} className="hover:text-purple-300 transition">• {p}</li>
-          ))}
-        </ul>
-
-        {/* Footer Quote */}
-        <p className="text-center text-gray-500 mt-6 text-sm">
-          “This year belongs to me. No excuses, only growth.”
+        <p className="text-center text-xs text-gray-500 mt-3 tracking-widest">
+          CALM · HONEST · REAL
         </p>
       </div>
+
+      {/* ANIMATIONS */}
+      <style>
+        {`
+        @keyframes roseSwap {
+          0% {
+            transform: rotate(3deg) translate(20px, 0) scale(1);
+            z-index: 2;
+          }
+          45% {
+            transform: rotate(-2deg) translate(30px, -6px) scale(1.05);
+            z-index: 2;
+          }
+          50% {
+            z-index: 1;
+          }
+          100% {
+            transform: rotate(3deg) translate(20px, 0) scale(1);
+            z-index: 1;
+          }
+        }
+
+        @keyframes memorySwap {
+          0% {
+            transform: rotate(-6deg) translate(-20px, 0) scale(1);
+            z-index: 1;
+          }
+          45% {
+            transform: rotate(-10deg) translate(-30px, 6px) scale(1);
+            z-index: 1;
+          }
+          50% {
+            z-index: 2;
+            transform: rotate(-8deg) translate(-10px, -6px) scale(1.06);
+          }
+          100% {
+            transform: rotate(-6deg) translate(-20px, 0) scale(1);
+            z-index: 2;
+          }
+        }
+
+        /* 🔥 5 SECOND DURATION */
+        .animate-roseSwap {
+          animation: roseSwap 5s ease-in-out infinite;
+        }
+
+        .animate-memorySwap {
+          animation: memorySwap 5s ease-in-out infinite;
+        }
+        `}
+      </style>
     </div>
   );
 };
