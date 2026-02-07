@@ -53,7 +53,7 @@ const BirthdayComebackPlan = () => {
         </p>
 
         <p className="text-center mt-7 text-rose-300 font-medium tracking-wide">
-          — For Rutu
+          — Fkt tuzyas sathi, tuzyas aathvani, tuzyas premasathi.
         </p>
 
         <p className="text-center text-xs text-gray-500 mt-3 tracking-widest">
