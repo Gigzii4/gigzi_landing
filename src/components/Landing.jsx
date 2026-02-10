@@ -9,7 +9,7 @@ import {
 import { HiSparkles, HiLightningBolt, HiTrendingUp } from "react-icons/hi";
 
 export default function ComingSoon() {
-  const launchDate = new Date("2026-02-10T00:00:00").getTime();
+  const launchDate = new Date("2026-02-20T00:00:00").getTime();
   const [timeLeft, setTimeLeft] = useState(getTimeRemaining());
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
