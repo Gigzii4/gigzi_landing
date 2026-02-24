@@ -36,7 +36,6 @@ import Pay from "./components/Pay";
 import Success from "./components/Success";
 import Privacy from "./components/Privacy";
 import BirthdayComebackPlan from "./components/Yash";
-import SorryFor from "./components/Yash";
 
 function AppLayout({ children }) {
   return (
@@ -70,7 +69,7 @@ function App() {
         <Route path="/success" element={<Success />} />
         <Route path="/artist/login" element={<ArtistLogin />} />
         <Route path="/artist/signup" element={<ArtistSignup />} />
-        <Route path="/sorry" element={<SorryFor />} />
+        <Route path="/roseday" element={<BirthdayComebackPlan />} />
         
         <Route
           path="/home"
