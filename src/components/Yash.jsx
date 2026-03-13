@@ -1,145 +1,144 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import Typed from "typed.js";
+import confetti from "canvas-confetti";
+
 import roseImg from "../assets/rose.jpeg";
 import memoryImg from "../assets/memory.jpeg";
+import image1 from "../assets/1.png";
+import image2 from "../assets/2.png";
+import image3 from "../assets/3.png";
+import song from "../assets/song.mp3";
 
-const BirthdayComebackPlan = () => {
+const images = [roseImg, memoryImg, image1, image2, image3];
+
+const BirthdaySurprise = () => {
+
+  const [started, setStarted] = useState(false);
+  const [showSurprise, setShowSurprise] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  const audioRef = useRef(null);
+  const el = useRef(null);
+  const typed = useRef(null);
+
+  useEffect(() => {
+
+    if(started){
+
+      audioRef.current.play();
+
+      typed.current = new Typed(el.current, {
+        strings: [
+          "Happy Birthday Rutu 🎂",
+          "You make my life brighter ✨",
+          "Your smile means everything to me ❤️"
+        ],
+        typeSpeed: 20,
+        backSpeed: 20,
+        loop: true
+      });
+
+      const slide = setInterval(()=>{
+        setIndex((prev)=> (prev+1)%images.length);
+      },3000);
+
+      return ()=>clearInterval(slide);
+    }
+
+  },[started]);
+
+  const triggerSurprise = () => {
+
+    setShowSurprise(true);
+
+    confetti({
+      particleCount:200,
+      spread:90,
+      origin:{y:0.6}
+    });
+
+  }
+
+  if(!started){
+    return(
+      <div className="h-screen flex items-center justify-center bg-black text-white">
+
+        <button
+        onClick={()=>setStarted(true)}
+        className="px-8 py-4 bg-pink-500 text-xl rounded-full hover:scale-110 transition">
+          Tap to start surprise ❤️
+        </button>
+
+      </div>
+    )
+  }
+
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black font-[Poppins]">
 
-      {/* 🌌 NEON BACKGROUND GLOWS */}
-      <div className="absolute -top-40 -left-40 w-[36rem] h-[36rem] bg-pink-500/30 rounded-full blur-[190px]" />
-      <div className="absolute top-1/3 -right-40 w-[34rem] h-[34rem] bg-rose-500/25 rounded-full blur-[180px]" />
-      <div className="absolute bottom-0 left-1/3 w-[32rem] h-[32rem] bg-fuchsia-500/20 rounded-full blur-[170px]" />
+    <div className="relative min-h-screen flex items-center justify-center bg-black text-white overflow-hidden">
 
-      {/* 💎 MAIN GLASS CARD */}
-      <div
-        className="relative z-10 w-[92%] max-w-md rounded-[2.8rem]
-        bg-gradient-to-br from-[#0b0b12]/95 via-[#10101d]/90 to-[#0b0b12]/95
-        border border-white/10
-        p-10
-        backdrop-blur-2xl
-        shadow-[0_0_140px_30px_#ff4d6d45]"
-      >
+      <audio ref={audioRef} src={song} loop />
 
-        {/* 🖼 IMAGE STACK */}
-        <div className="relative flex justify-center mb-10 h-[22rem]">
+      {/* glowing background */}
+      <div className="absolute w-[500px] h-[500px] bg-pink-500/30 blur-[200px] -top-40 -left-40 rounded-full"/>
+      <div className="absolute w-[500px] h-[500px] bg-rose-500/30 blur-[200px] top-40 -right-40 rounded-full"/>
 
-          {/* MEMORY IMAGE */}
+      {/* heart rain */}
+      <div className="absolute text-pink-400 text-2xl animate-heart">❤️</div>
+      <div className="absolute left-20 text-pink-400 text-2xl animate-heart">❤️</div>
+      <div className="absolute right-20 text-pink-400 text-2xl animate-heart">❤️</div>
+
+      <div className="z-10 bg-[#111] p-10 rounded-3xl shadow-xl text-center max-w-md w-[90%]">
+
+        {/* slideshow */}
+        <div className="h-[250px] mb-6 flex justify-center">
           <img
-            src={memoryImg}
-            alt="Memory"
-            className="absolute w-56 h-72 object-cover rounded-3xl
-              grayscale
-              border border-white/10
-              shadow-[0_0_45px_#ffffff25]
-              animate-memorySwap"
+          src={images[index]}
+          className="w-60 h-70 object-cover rounded-2xl shadow-lg transition duration-1000"
           />
-
-          {/* ROSE IMAGE */}
-          <img
-            src={roseImg}
-            alt="Rose"
-            className="absolute w-56 h-72 object-cover rounded-3xl
-              border border-rose-400/70
-              shadow-[0_0_80px_#ff6b81]
-              animate-roseSwap"
-          />
-
-          {/* NEON IMAGE GLOW */}
-          <div className="absolute w-60 h-80 rounded-3xl bg-rose-500/30 blur-[90px]" />
         </div>
 
-        {/* 🌹 HEADING */}
-        <h1
-          className="text-3xl font-semibold text-center text-rose-300
-          drop-shadow-[0_0_22px_#ff6b81]"
-        >
-          Happy Propose Day 🌹
+        <h1 className="text-3xl mt-3 text-pink-300 mb-4">
+          Happy Birthday 🎉
         </h1>
 
-        {/* 🌫 MAIN MESSAGE */}
-        <p className="text-center text-gray-300 mt-5 leading-relaxed text-[15px]">
-          I’m not here to rush anything.
-          <br />
-          Not here to demand answers.
-          <br />
-          Just here — honestly.
-        </p>
+        {/* typing */}
+        <div className="text-lg text-gray-300">
+          <span ref={el}></span>
+        </div>
 
-        {/* ⭐ BEST LINE */}
-        <p
-          className="text-center mt-6 text-rose-200 italic text-[15px]
-          drop-shadow-[0_0_14px_#ff6b81]"
-        >
-          “I’m not asking you to choose me today —
-          <br />
-          I’m choosing to be here, honestly.”
-        </p>
+        <button
+        onClick={triggerSurprise}
+        className="mt-6 px-6 py-3 bg-rose-500 rounded-full hover:scale-110 transition">
+          Click for Surprise 🎁
+        </button>
 
-        {/* ✨ SIGNATURE */}
-        <p className="text-center mt-8 text-rose-200 font-medium tracking-wide leading-relaxed">
-          — Kahi bolaychi garaj nahi.
-          <br />
-          Fakt itkach… mi ikde aahe, My Queen .
-        </p>
+        {showSurprise && (
+          <div className="mt-6 text-xl text-pink-300">
+            🎉 Happy Birthday My Queen 🎉
+            <p className="text-gray-300 mt-2">
+              Among all the gifts, the most precious one is you ❤️
+            </p>
+          </div>
+        )}
 
-        {/* 🔖 FOOTER */}
-        <p className="text-center text-xs text-gray-400 mt-4 tracking-[0.35em]">
-          PATIENCE · RESPECT · REAL
-        </p>
       </div>
 
-      {/* 🎞️ ANIMATIONS */}
-      <style>
-        {`
-        @keyframes roseSwap {
-          0% {
-            transform: rotate(4deg) translate(18px, 0) scale(1);
-            z-index: 2;
-          }
-          45% {
-            transform: rotate(-3deg) translate(34px, -8px) scale(1.07);
-            z-index: 2;
-          }
-          50% {
-            z-index: 1;
-          }
-          100% {
-            transform: rotate(4deg) translate(18px, 0) scale(1);
-            z-index: 1;
-          }
-        }
+      <style>{`
 
-        @keyframes memorySwap {
-          0% {
-            transform: rotate(-8deg) translate(-22px, 0) scale(1);
-            z-index: 1;
-          }
-          45% {
-            transform: rotate(-13deg) translate(-36px, 8px) scale(1.05);
-            z-index: 1;
-          }
-          50% {
-            z-index: 2;
-            transform: rotate(-9deg) translate(-12px, -10px) scale(1.09);
-          }
-          100% {
-            transform: rotate(-8deg) translate(-22px, 0) scale(1);
-            z-index: 2;
-          }
-        }
+      @keyframes heart{
+        0%{transform:translateY(0);opacity:1}
+        100%{transform:translateY(-100vh);opacity:0}
+      }
 
-        .animate-roseSwap {
-          animation: roseSwap 5s ease-in-out infinite;
-        }
+      .animate-heart{
+        animation:heart 6s linear infinite;
+      }
 
-        .animate-memorySwap {
-          animation: memorySwap 5s ease-in-out infinite;
-        }
-        `}
-      </style>
+      `}</style>
+
     </div>
-  );
-};
+  )
+}
 
-export default BirthdayComebackPlan;
+export default BirthdaySurprise;
